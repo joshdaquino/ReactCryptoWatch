@@ -24,16 +24,6 @@ class List extends React.Component {
     this.fetchCurrencies();
   }
 
-  renderChangePercent(percent) {
-    if (percent > 0) {
-      return <span className="percent-raised">{percent}% &uarr;</span>
-    } else if (percent < 0) {
-      return <span className="percent-fallen">{percent}% &darr;</span>
-    } else {
-      return <span>{percent}</span>
-    }
-  }
-
   fetchCurrencies() {
     this.setState({loading: true});
 
@@ -81,8 +71,7 @@ class List extends React.Component {
     return (
       <div>
         <Table 
-          currencies={currencies}
-          renderChangePercent={this.renderChangePercent} />
+          currencies={currencies} />
 
         <Pagination 
           page={page}
